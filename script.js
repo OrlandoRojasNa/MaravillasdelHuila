@@ -8,7 +8,7 @@ const municipalities = [
                 description: 'Los petroglifos muestran figuras zoomorfas, en las que se aprecian aves, serpientes, lagartos y caracoles. Hay también representaciones del sol, la vida, la fertilidad, la muerte y algunas son fantasmagóricas. Los petroglifos son grabados sobre roca realizados por pueblos prehistóricos, en los que dejaron registro sobre sus vidas y sociedades humanas De acuerdo con Podestá, Fernández Scheinsohn y Sánchez, “El arte rupestre es una parte importante del patrimonio cultural, es un testimonio del pasado que brinda no solo un placer estético para quien lo observe actualmente sino una invalorable información sobre los grupos humanos del pasado”.Los estudios sobre petroglifos son escasos, solo son de carácter descriptivo, no conectan con la estructura social y económica de la región.',
                 image1: 'images/acevedo/1.png',
                 image2: 'images/acevedo/2.png',
-                image3: 'images/acevedo/2.png',
+                image3: 'images/acevedo/3.png',
                 location: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.9264196837676!2d-75.89982534487824!3d1.7645232987408135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e25a9f829bf017f%3A0x3fc7b5ee9a2a220b!2sPetroglifos%20Acevedo!5e0!3m2!1ses!2sco!4v1726765541907!5m2!1ses!2sco" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
             },
             {
