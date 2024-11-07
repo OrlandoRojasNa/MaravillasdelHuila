@@ -949,74 +949,85 @@ const municipalities = [
 ];
 
 
-// Referencias a elementos 
-const municipalityList = document.getElementById('municipality-list');
-const categoryList = document.getElementById('category-list');
-const categoryDetails = document.getElementById('category-details');
+// Referencias a elementos en el DOM
+const municipalityList = document.getElementById('municipality-list');  // Contenedor de la lista de municipios
+const categoryList = document.getElementById('category-list');          // Contenedor de botones de categorías
+const categoryDetails = document.getElementById('category-details');    // Contenedor para mostrar los detalles de la categoría seleccionada
 
 // Función para cargar los municipios
 function loadMunicipalities() {
+    // Itera sobre cada municipio en el array 'municipalities'
     municipalities.forEach((municipality, index) => {
-        const li = document.createElement('li');
-        li.textContent = municipality.title;
-        li.classList.add('municipality-item');
+        const li = document.createElement('li');              // Crea un nuevo elemento <li> para cada municipio
+        li.textContent = municipality.title;                  // Asigna el título del municipio como texto del <li>
+        li.classList.add('municipality-item');                // Agrega una clase al <li> para estilizado
+
+        // Agrega un evento 'click' al <li> que cargará las categorías del municipio seleccionado
         li.addEventListener('click', () => loadCategories(index));
+        
+        // Agrega el <li> creado al contenedor de la lista de municipios
         municipalityList.appendChild(li);
     });
 }
 
 // Función para cargar las categorías de un municipio con botones horizontales
 function loadCategories(municipalityIndex) {
-    const selectedMunicipality = municipalities[municipalityIndex];
+    const selectedMunicipality = municipalities[municipalityIndex];  // Selecciona el municipio basado en el índice dado
 
-    // Limpiar las listas anteriores
-    categoryList.innerHTML = '';
-    categoryDetails.innerHTML = '';
+    // Limpia las listas anteriores de categorías y detalles
+    categoryList.innerHTML = '';  // Limpia el contenedor de botones de categorías
+    categoryDetails.innerHTML = ''; // Limpia el contenedor de detalles de la categoría
 
+    // Itera sobre cada categoría del municipio seleccionado
     selectedMunicipality.categories.forEach((category, index) => {
-        const button = document.createElement('button');
-        button.textContent = category.name;
-        button.classList.add('category-btn');
+        const button = document.createElement('button');     // Crea un nuevo botón para cada categoría
+        button.textContent = category.name;                  // Asigna el nombre de la categoría como texto del botón
+        button.classList.add('category-btn');                // Agrega una clase al botón para estilizado
+
+        // Agrega un evento 'click' al botón que mostrará los detalles de la categoría seleccionada
         button.addEventListener('click', () => showCategoryDetails(municipalityIndex, index));
+        
+        // Agrega el botón creado al contenedor de la lista de categorías
         categoryList.appendChild(button);
     });
 }
 
-// Función para mostrar los detalles de una categoría
+// Función para mostrar los detalles de una categoría seleccionada
 function showCategoryDetails(municipalityIndex, categoryIndex) {
-    const category = municipalities[municipalityIndex].categories[categoryIndex];
+    const category = municipalities[municipalityIndex].categories[categoryIndex];  // Obtiene la categoría seleccionada
 
+    // Rellena el contenedor de detalles de la categoría con contenido HTML dinámico
     categoryDetails.innerHTML = `
-        <h2>${category.name}</h2>
-        <p>${category.description}</p>
+        <h2>${category.name}</h2>                  // Muestra el nombre de la categoría como título
+        <p>${category.description}</p>             // Muestra la descripción de la categoría
 
-        <!-- Contenedor de galería -->
+        <!-- Contenedor de galería de imágenes -->
         <div class="image-gallery">
             <div class="image-wrapper">
-                <img src="${category.image1}" alt="${category.name} Image 1">
+                <img src="${category.image1}" alt="${category.name} Image 1">  // Muestra la primera imagen de la categoría
             </div>
             <div class="image-wrapper">
-                <img src="${category.image2}" alt="${category.name} Image 2">
+                <img src="${category.image2}" alt="${category.name} Image 2">  // Muestra la segunda imagen de la categoría
             </div>
             <div class="image-wrapper">
-                <img src="${category.image3}" alt="${category.name} Image 3">
+                <img src="${category.image3}" alt="${category.name} Image 3">  // Muestra la tercera imagen de la categoría
             </div>
         </div>
 
-        <div class="location-details">${category.location}</div>
+        <div class="location-details">${category.location}</div>  // Muestra la ubicación de la categoría
     `;
 
-    // Actualizar la selección de botón
-    const buttons = document.querySelectorAll('.category-btn');
-    buttons.forEach(button => button.classList.remove('selected'));
-    buttons[categoryIndex].classList.add('selected');
+    // Actualiza la selección visual del botón de categoría
+    const buttons = document.querySelectorAll('.category-btn');  // Selecciona todos los botones de categoría
+    buttons.forEach(button => button.classList.remove('selected')); // Remueve la clase 'selected' de todos los botones
+    buttons[categoryIndex].classList.add('selected');            // Agrega la clase 'selected' al botón actual
 }
 
 // Función para mostrar/ocultar el menú lateral en móviles (si aplica)
 function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('open');
+    const sidebar = document.getElementById('sidebar');  // Selecciona el elemento sidebar por su ID
+    sidebar.classList.toggle('open');                    // Agrega o quita la clase 'open' para mostrar/ocultar el menú
 }
 
 // Cargar los municipios al cargar la página
-loadMunicipalities();
+loadMunicipalities();  // Llama a la función 'loadMunicipalities' para inicializar la lista de municipios cuando se carga la página
