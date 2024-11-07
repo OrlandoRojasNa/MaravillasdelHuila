@@ -1,0 +1,517 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1d1d1d;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    background-color: #2d2d2d;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+/* Hide the sidebar by default on mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.sidebar ul li:hover {
+    color: #fff;
+}
+
+.main-content {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+}
+
+/* Estilos para las opciones de municipio */
+.municipality-options {
+    display: flex;
+    flex-wrap: wrap;
+    /* Para permitir que las opciones salten de línea si es necesario */
+    gap: 10px;
+    /* Espacio entre los botones */
+    margin-top: 20px;
+    /* Espacio entre el título del municipio y las opciones */
+    justify-content: center;
+    /* Centra las opciones horizontalmente */
+}
+
+.municipality-option-btn {
+    background-color: #3a3a3a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    /* Bordes redondeados para un estilo más moderno */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.municipality-option-btn:hover {
+    background-color: #555;
+    /* Color más claro al hacer hover */
+    transform: scale(1.05);
+    /* Aumenta ligeramente el tamaño al hacer hover */
+}
+
+.municipality-option-btn:active {
+    transform: scale(1);
+    /* Vuelve al tamaño original al hacer clic */
+}
+
+.municipality-option-btn.selected {
+    background-color: #1abc9c;
+    /* Color especial para el botón seleccionado */
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2d2d2d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        padding-top: 60px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-top: 50px;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .sidebar ul li {
+        padding: 8px 0;
+        font-size: 14px;
+    }
+
+    .main-content h1 {
+        font-size: 18px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eaf4ea;
+    color: #333333;
+}
+
+.container {
+    display: flex;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 200px);
+    box-sizing: border-box;
+}
+
+.sidebar {
+    background-color: #73bf7f;
+    padding: 20px;
+    width: 170px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #58a96e;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: #f2f8f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mejorando el diseño de #category-details */
+#category-details {
+    margin-top: 20px;
+    color: #333333;
+    /* Texto en gris oscuro */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#category-details:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#category-details h1 {
+    font-size: 24px;
+    color: #3f874d;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #73bf7f;
+    padding-bottom: 5px;
+}
+
+#category-details h2 {
+    font-size: 2em;
+    color: #3f874d;
+    /* Título en verde oscuro */
+    margin-bottom: 15px;
+
+    border-bottom: 2px solid #3f874d;
+    /* Línea decorativa debajo del título */
+    padding-bottom: 5px;
+}
+
+#category-details p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-weight: bold;
+    color: #555555;
+    /* Color de texto ligeramente más claro */
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.location-details {
+    font-size: 1.2em;
+    color: #3f874d;
+    /* Resalta el lugar con verde oscuro */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Añadir un efecto decorativo de citas para los textos */
+#category-details p::before {
+    content: "“";
+    font-size: 2em;
+    color: #73bf7f;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#category-details p::after {
+    content: "”";
+    font-size: 2em;
+    color: #73bf7f;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-section p {
+    margin: 8px 0;
+    color: #666;
+}
+
+/* Botones de categorías */
+.category-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    background-color: #73bf7f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.category-btn:hover {
+    background-color: #58a96e;
+    transform: scale(1.05);
+}
+
+.category-btn.selected {
+    background-color: #3f874d;
+}
+
+/* Cabecera */
+header {
+    background-color: #ebf0ec;
+    color: #3f874d;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header img {
+    width: 8rem;
+    height: auto;
+    margin-right: 20px;
+}
+
+header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 35px;
+}
+
+/* Estilos para la galería de imágenes */
+.image-gallery {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-wrapper {
+    flex: 1 1 550px;
+    /* Tamaño base mayor para cada card */
+    max-width: 550px;
+    height: 300px;
+    /* Altura fija mayor para uniformidad */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image-wrapper-home {
+    flex: 1 1 550px;
+    /* Tamaño base mayor para cada card */
+    max-width: 550px;
+    height: 300px;
+    /* Altura fija mayor para uniformidad */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta la imagen para que llene el contenedor */
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Estilos para el contenedor de detalles de ubicación (mapa) */
+.location-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f8f4;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    color: #3f874d;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    margin-top: 20px;
+}
+
+.location-details:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Icono de ubicación */
+.location-details::before {
+    content: "📍";
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+/* Texto del mapa */
+.location-details span {
+    display: block;
+    text-align: center;
+}
+
+/* Estilos para simular enlace del mapa */
+.location-details a {
+    color: #3f874d;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+.location-details a:hover {
+    color: #2d6d3d;
+    /* Verde más oscuro para hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #3f874d;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.contact-info, .social-media {
+    flex: 1;
+    margin: 10px;
+}
+
+.contact-info h2, .social-media h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-info p, .social-media a {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.social-media a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    margin-top: 20px;
+    color: #cccccc;
+}
